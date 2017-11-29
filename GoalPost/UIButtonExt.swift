@@ -2,18 +2,18 @@
 //  UIButtonExt.swift
 //  GoalPost
 //
-//  Created by Perfect on 2017/11/20.
+//  Created by Perfect on 2017/11/29.
 //  Copyright © 2017年 Alex. All rights reserved.
 //
 
 import UIKit
 
 extension UIButton {
-    func selectedBackgroundColor () {
-        self.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+    func selectedBackgroundColor() {
+        self.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
     }
     
-    func deselectedBackgroundColor () {
-        self.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+    func deselectedBackgroundColor() {
+        self.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
     }
 }

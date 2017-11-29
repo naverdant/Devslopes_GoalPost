@@ -2,7 +2,7 @@
 //  CreateGoalVC.swift
 //  GoalPost
 //
-//  Created by Perfect on 2017/11/14.
+//  Created by Perfect on 2017/11/29.
 //  Copyright © 2017年 Alex. All rights reserved.
 //
 
@@ -10,45 +10,46 @@ import UIKit
 
 class CreateGoalVC: UIViewController, UITextViewDelegate {
 
-    @IBOutlet weak var goalTextView: UITextView!
     @IBOutlet weak var shortTermBtn: UIButton!
     @IBOutlet weak var longTermBtn: UIButton!
-    @IBOutlet weak var nextBtn: UIButton!
-    
+    @IBOutlet weak var nextStepBtn: UIButton!
+    @IBOutlet weak var goalDescriptionTextView: UITextView!
     var goalType : GoalType = .shortTerm
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.goalTextView.delegate = self
-        self.nextBtn.bindToKeyboard()
+        
+        goalDescriptionTextView.delegate = self
+        nextStepBtn.bindToKeyboard()
     }
-    
+
     @IBAction func shortTermBtnWasPressed(_ sender: UIButton) {
-        self.shortTermBtn.selectedBackgroundColor()
-        self.longTermBtn.deselectedBackgroundColor()
-        self.goalType = .shortTerm
+        goalType = .shortTerm
+        shortTermBtn.selectedBackgroundColor()
+        longTermBtn.deselectedBackgroundColor()
     }
     
     @IBAction func longTermBtnWasPressed(_ sender: UIButton) {
-        self.longTermBtn.selectedBackgroundColor()
-        self.shortTermBtn.deselectedBackgroundColor()
-        self.goalType = .longTerm
-    }
-    
-    @IBAction func nextBtnWasPressed(_ sender: UIButton) {
-        if(self.goalTextView.text != nil && self.goalTextView.text != "What is your goal?") {
-            guard let finishGoalVC = storyboard?.instantiateViewController(withIdentifier: "finishGoalVC") as? FinishGoalVC else { return }
-            finishGoalVC.goalType = self.goalType
-            finishGoalVC.goalDescription = self.goalTextView.text
-            presentDetailViewController(finishGoalVC)
-        }
+        goalType = .longTerm
+        shortTermBtn.deselectedBackgroundColor()
+        longTermBtn.selectedBackgroundColor()
     }
     
     @IBAction func backBtnWasPressed(_ sender: UIButton) {
         dismissDetailViewController()
     }
     
+    @IBAction func nextStepBtnWasPressed(_ sender: UIButton) {
+        if goalDescriptionTextView.text != "What is your goal?" && goalDescriptionTextView.text != "" {
+            guard let goalProgressVC = storyboard?.instantiateViewController(withIdentifier: "goalProgressVC") as? GoalProgressVC  else { return }
+            goalProgressVC.initData(withDescription: goalDescriptionTextView.text, andGoalType: goalType)
+            presentingViewController?.presentSecondaryDetailViewController(goalProgressVC)
+        }
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.text = ""
+        if goalDescriptionTextView.text == "What is your goal?" {
+            goalDescriptionTextView.text = ""
+        }
     }
 }

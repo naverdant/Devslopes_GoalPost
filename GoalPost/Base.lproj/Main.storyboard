@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--GoalsVC-->
+        <!--GoalVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="GoalVC" id="BYZ-38-t0r" customClass="GoalsVC" customModule="GoalPost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalVC" id="BYZ-38-t0r" customClass="GoalVC" customModule="GoalPost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -46,7 +46,7 @@
                                         <rect key="frame" x="320" y="19" width="35" height="32"/>
                                         <state key="normal" image="addGoal"/>
                                         <connections>
-                                            <action selector="addGoalBtmWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L1x-c7-Tv9"/>
+                                            <action selector="addGoalBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pjk-EF-qkT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -80,7 +80,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="goalCell" rowHeight="70" id="eLu-6i-kuE" customClass="GoalCellTableViewCell" customModule="GoalPost" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="goalCell" rowHeight="70" id="eLu-6i-kuE" customClass="GoalCell" customModule="GoalPost" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eLu-6i-kuE" id="ahh-fk-Tob">
@@ -135,21 +135,42 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjg-4x-41L">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Co-RR-jGW">
+                                                            <rect key="frame" x="41" y="2.5" width="293.5" height="66"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-BoldItalic" family="Avenir Next" pointSize="48"/>
+                                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="7Co-RR-jGW" firstAttribute="centerY" secondItem="Pjg-4x-41L" secondAttribute="centerY" id="7bS-ko-a9o"/>
+                                                        <constraint firstItem="7Co-RR-jGW" firstAttribute="centerX" secondItem="Pjg-4x-41L" secondAttribute="centerX" id="mA5-oa-OcR"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eXf-Xj-A9s" firstAttribute="top" secondItem="ahh-fk-Tob" secondAttribute="topMargin" constant="8" id="1OT-P9-Nco"/>
+                                                <constraint firstItem="Pjg-4x-41L" firstAttribute="leading" secondItem="ahh-fk-Tob" secondAttribute="leading" id="1YF-Yk-HPX"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="eXf-Xj-A9s" secondAttribute="trailing" constant="8" id="ALi-LW-ggJ"/>
                                                 <constraint firstItem="eXf-Xj-A9s" firstAttribute="leading" secondItem="9hE-KY-hhH" secondAttribute="trailing" constant="10" id="AoB-16-jQr"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="eXf-Xj-A9s" secondAttribute="bottom" constant="8" id="b26-b0-N4h"/>
+                                                <constraint firstAttribute="bottom" secondItem="Pjg-4x-41L" secondAttribute="bottom" id="ddc-Xb-EaM"/>
+                                                <constraint firstItem="Pjg-4x-41L" firstAttribute="top" secondItem="ahh-fk-Tob" secondAttribute="top" id="hRH-ls-Ygb"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="9hE-KY-hhH" secondAttribute="bottom" id="hRa-ei-syK"/>
                                                 <constraint firstItem="9hE-KY-hhH" firstAttribute="leading" secondItem="ahh-fk-Tob" secondAttribute="leadingMargin" constant="10" id="kKp-nu-7wO"/>
+                                                <constraint firstAttribute="trailing" secondItem="Pjg-4x-41L" secondAttribute="trailing" id="vzR-px-55i"/>
                                                 <constraint firstItem="9hE-KY-hhH" firstAttribute="top" secondItem="ahh-fk-Tob" secondAttribute="topMargin" id="zym-Is-gaz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="goalDescriptionLabel" destination="Lsu-KF-z2q" id="UF3-ch-FGe"/>
-                                            <outlet property="goalProgressLabel" destination="eXf-Xj-A9s" id="4fY-nz-t9m"/>
-                                            <outlet property="goalTypeLabel" destination="L9x-qi-dzS" id="ugP-if-q7M"/>
+                                            <outlet property="completeProgressValueLabel" destination="eXf-Xj-A9s" id="eeB-VE-Gwn"/>
+                                            <outlet property="completedView" destination="Pjg-4x-41L" id="mqV-l8-XDb"/>
+                                            <outlet property="descriptionLabel" destination="Lsu-KF-z2q" id="TTs-Ru-pha"/>
+                                            <outlet property="termTypeLabel" destination="L9x-qi-dzS" id="D16-tt-usq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,7 +190,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="IPa-64-Kt6" id="zUS-br-W7P"/>
+                        <outlet property="goalTable" destination="IPa-64-Kt6" id="6tG-ub-bc7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -212,7 +233,7 @@
                                         <rect key="frame" x="20" y="22.5" width="14" height="25"/>
                                         <state key="normal" image="back"/>
                                         <connections>
-                                            <action selector="backBtnWasPressed:" destination="hL3-Jd-gI6" eventType="touchUpInside" id="FXr-Bq-4jd"/>
+                                            <action selector="backBtnWasPressed:" destination="hL3-Jd-gI6" eventType="touchUpInside" id="IS4-fA-Eoh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -247,22 +268,22 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eke-9j-tAo">
                                                 <rect key="frame" x="0.0" y="0.0" width="161.5" height="50"/>
-                                                <color key="backgroundColor" red="0.60639157824956391" green="0.79303289456230786" blue="0.93163567781448364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.85490196939999996" green="0.25098040700000002" blue="0.4784313738" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Short term">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="shortTermBtnWasPressed:" destination="hL3-Jd-gI6" eventType="touchUpInside" id="4Ji-le-wA6"/>
+                                                    <action selector="shortTermBtnWasPressed:" destination="hL3-Jd-gI6" eventType="touchUpInside" id="Q8i-CL-eV8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7Y-dq-niT">
                                                 <rect key="frame" x="181.5" y="0.0" width="161.5" height="50"/>
-                                                <color key="backgroundColor" red="0.79203275221403802" green="0.9268833759684143" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.9098039269" green="0.4784313738" blue="0.64313727620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Long term">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="longTermBtnWasPressed:" destination="hL3-Jd-gI6" eventType="touchUpInside" id="e6a-8j-t0H"/>
+                                                    <action selector="longTermBtnWasPressed:" destination="hL3-Jd-gI6" eventType="touchUpInside" id="cNl-QH-0Zh"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -292,7 +313,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextBtnWasPressed:" destination="hL3-Jd-gI6" eventType="touchUpInside" id="jwv-Zf-N9n"/>
+                                    <action selector="nextStepBtnWasPressed:" destination="hL3-Jd-gI6" eventType="touchUpInside" id="yCp-z7-doP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -310,20 +331,20 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="goalTextView" destination="ePC-fe-eBX" id="oNf-5T-1aI"/>
-                        <outlet property="longTermBtn" destination="I7Y-dq-niT" id="6KX-oY-qzI"/>
-                        <outlet property="nextBtn" destination="wSJ-PL-66l" id="cFM-7d-o5d"/>
-                        <outlet property="shortTermBtn" destination="Eke-9j-tAo" id="o50-ly-uJi"/>
+                        <outlet property="goalDescriptionTextView" destination="ePC-fe-eBX" id="ddP-oY-JNL"/>
+                        <outlet property="longTermBtn" destination="I7Y-dq-niT" id="U7X-F1-YhE"/>
+                        <outlet property="nextStepBtn" destination="wSJ-PL-66l" id="GeJ-CY-x6k"/>
+                        <outlet property="shortTermBtn" destination="Eke-9j-tAo" id="3AY-bP-ZLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYz-VK-j6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="861.60000000000002" y="137.18140929535232"/>
         </scene>
-        <!--Finish GoalVC-->
+        <!--Goal ProgressVC-->
         <scene sceneID="95S-Me-X3A">
             <objects>
-                <viewController storyboardIdentifier="finishGoalVC" id="P78-dQ-QDr" customClass="FinishGoalVC" customModule="GoalPost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="goalProgressVC" id="P78-dQ-QDr" customClass="GoalProgressVC" customModule="GoalPost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8lH-RA-WA1"/>
                         <viewControllerLayoutGuide type="bottom" id="Dce-Rz-Xp9"/>
@@ -356,7 +377,7 @@
                                         <rect key="frame" x="20" y="22.5" width="14" height="25"/>
                                         <state key="normal" image="back"/>
                                         <connections>
-                                            <action selector="backBtnWasPressed:" destination="P78-dQ-QDr" eventType="touchUpInside" id="u1Z-CD-Z6J"/>
+                                            <action selector="backBtnWasPressed" destination="P78-dQ-QDr" eventType="touchUpInside" id="Nhl-Da-fAu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -371,29 +392,15 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="mTS-WH-QB4"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgT-DS-2oO">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.82745098039999998" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="JKQ-od-BQr"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="XVh-TZ-nD7"/>
-                                </constraints>
-                                <state key="normal" title="CREATE GOAL">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createGoalBtnWasPressed:" destination="P78-dQ-QDr" eventType="touchUpInside" id="ERl-6w-Krz"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-qe-wdd">
-                                <rect key="frame" x="171.5" y="120.5" width="32" height="50"/>
+                                <rect key="frame" x="147.5" y="120.5" width="80" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FnF-RO-XBu"/>
-                                    <constraint firstAttribute="width" constant="32" id="a3H-Vg-Mgd"/>
+                                    <constraint firstAttribute="width" constant="80" id="T99-Ev-oFd"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="48"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peg-r4-9ks">
                                 <rect key="frame" x="138" y="80" width="98" height="20.5"/>
@@ -401,24 +408,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-e3-2Tc">
+                                <rect key="frame" x="0.0" y="175.5" width="375" height="491.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgT-DS-2oO">
+                                        <rect key="frame" x="0.0" y="441" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.82745098039999998" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="P5e-kE-pXp"/>
+                                        </constraints>
+                                        <state key="normal" title="CREATE GOAL">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createBtnWasPressed:" destination="P78-dQ-QDr" eventType="touchUpInside" id="mSq-Il-5TY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dgT-DS-2oO" secondAttribute="bottom" id="0II-1I-F99"/>
+                                    <constraint firstItem="dgT-DS-2oO" firstAttribute="leading" secondItem="nHW-e3-2Tc" secondAttribute="leading" id="o4d-pi-bRc"/>
+                                    <constraint firstAttribute="trailing" secondItem="dgT-DS-2oO" secondAttribute="trailing" id="qCN-MH-CIL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dgT-DS-2oO" secondAttribute="trailing" id="4wV-fx-rVD"/>
+                            <constraint firstItem="Dce-Rz-Xp9" firstAttribute="top" secondItem="nHW-e3-2Tc" secondAttribute="bottom" id="7cf-g0-bNI"/>
                             <constraint firstItem="gfA-jL-4un" firstAttribute="leading" secondItem="xnt-SU-FpZ" secondAttribute="leading" id="Dzp-AE-df6"/>
-                            <constraint firstItem="Dce-Rz-Xp9" firstAttribute="top" secondItem="dgT-DS-2oO" secondAttribute="bottom" id="IsN-SJ-kSE"/>
                             <constraint firstItem="peg-r4-9ks" firstAttribute="centerX" secondItem="xnt-SU-FpZ" secondAttribute="centerX" id="JKe-GC-kqL"/>
-                            <constraint firstItem="dgT-DS-2oO" firstAttribute="leading" secondItem="xnt-SU-FpZ" secondAttribute="leading" id="KvD-b2-lGq"/>
                             <constraint firstItem="gfA-jL-4un" firstAttribute="top" secondItem="xnt-SU-FpZ" secondAttribute="top" id="X78-BX-erQ"/>
                             <constraint firstItem="peg-r4-9ks" firstAttribute="top" secondItem="gfA-jL-4un" secondAttribute="bottom" constant="10" id="YDG-Yo-59N"/>
+                            <constraint firstAttribute="trailing" secondItem="nHW-e3-2Tc" secondAttribute="trailing" id="YaP-LO-x4y"/>
                             <constraint firstItem="WnE-qe-wdd" firstAttribute="centerX" secondItem="xnt-SU-FpZ" secondAttribute="centerX" id="agE-uK-YGB"/>
+                            <constraint firstItem="nHW-e3-2Tc" firstAttribute="top" secondItem="WnE-qe-wdd" secondAttribute="bottom" constant="5" id="bne-0J-N2K"/>
                             <constraint firstAttribute="trailing" secondItem="gfA-jL-4un" secondAttribute="trailing" id="er8-BU-O41"/>
+                            <constraint firstItem="nHW-e3-2Tc" firstAttribute="leading" secondItem="xnt-SU-FpZ" secondAttribute="leading" id="nM8-yu-ZBJ"/>
                             <constraint firstItem="WnE-qe-wdd" firstAttribute="top" secondItem="peg-r4-9ks" secondAttribute="bottom" constant="20" id="xpA-yT-GR9"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="createGoalBtn" destination="dgT-DS-2oO" id="uTn-UE-ox4"/>
-                        <outlet property="progressTextfield" destination="WnE-qe-wdd" id="XBC-wv-ikW"/>
+                        <outlet property="createGoalBtn" destination="dgT-DS-2oO" id="fsi-Y8-iOH"/>
+                        <outlet property="progressTextfield" destination="WnE-qe-wdd" id="tq5-YU-rz2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOP-7D-1H0" userLabel="First Responder" sceneMemberID="firstResponder"/>
